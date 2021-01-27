@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lit Blog | All Posts</title>
+    include header.pug
+</head>
+<body>
+    include navbar.pug
+    <div class="container">
+        if postData
+            each post in postData
+                <div class="card">
+                    <img class="card-img-top" src="...">
+                    <div class="card-body">
+                        h5(class="card-title")= post.title
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+        else
+    </div>
+</body>
+</html>

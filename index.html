@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Homepage</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <style>
+            a,
+            a:visited,
+            a:active,
+            a:hover {
+                text-decoration: none;
+                color: black;
+            }
+            span {
+                font-size: 18px;
+            }
+
+            .row,
+            .col,
+            .col-sm-3,
+            .col-sm-9 {
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+
+            .spacer {
+                height: 150px;
+            }
+
+            /* Left column designs */
+            #leftCol img {
+                width: 80%;
+                height: auto;
+                transition: 0.35s;
+            }
+            #leftCol img:hover {
+                opacity: 0.6;
+            }
+            #leftCol {
+                text-align: center;
+            }
+            #leftCol .row {
+                margin-top: 50px !important;
+            }
+
+            /* Right column designs */
+            #rightCol {
+                position: fixed;
+                right: 0;
+                top: 100px;
+                text-align: left;
+            }
+            #rightCol .row {
+                display: block;
+                margin-top: 20px !important;
+                width: 90%;
+                position: relative;
+                left: 5%;
+            }
+            .post,
+            #recentWorksSlider {
+                height: 100px;
+                width: 100%;
+                line-height: 25px;
+                display: block;
+                cursor: pointer;
+            }
+            .post i {
+                position: absolute;
+                right: 0;
+                opacity: 0;
+                transition: 0.35s;
+            }
+            .post:hover i {
+                opacity: 1;
+            }
+
+            /* Slider designs */
+            #rightSlider {
+                width: 80%;
+                height: auto;
+                position: relative;
+                left: 10%;
+                display: block;
+                text-align: center;
+            }
+            #rightSlider img {
+                width: 100%;
+                height: 100%;
+                position: relative;
+                top: 0;
+                left: 0;
+            }
+            .dot {
+                width: 15px;
+                height: 15px;
+                border: 2px solid black;
+                border-radius: 50%;
+                display: inline-block;
+                position: relative;
+                top: 10px;
+                margin-left: 10px;
+                margin-right: 10px;
+                cursor: pointer;
+                transition: 0.35s;
+            }
+            .dot:hover {
+                background-color: black;
+            }
+            .active {
+                background-color: black;
+            }
+
+            .allButton {
+                display: block;
+                position: relative;
+                left: calc(40% - 2px);
+                margin-top: 50px;
+                width: 20%;
+                height: 50px;
+                line-height: 50px;
+                text-align: center;
+                color: white !important;
+                background-color: black;
+                border: 2px solid black;
+                font-size: 20px;
+                transition: 0.35s;
+                border-radius: 10px;
+            }
+            .allButton:hover {
+                color: black !important;
+                background-color: white;
+            }
+
+            /* Blogs styles */
+            .card {
+                display: block;
+                width: 80% !important;
+                height: auto;
+                position: relative;
+                left: 10%;
+                text-align: left;
+            }
+            .card img {
+                width: 100% !important;
+                height: auto !important;
+                display: block;
+                position: relative;
+            }
+            .card img:hover,
+            #personalPhoto:hover {
+                opacity: 1 !important;
+            }
+
+            /* About styles */
+            #personalPhoto,
+            #personalDescription {
+                text-align: left;
+                display: block;
+                width: 80%;
+                height: 100%;
+                position: relative;
+                left: 10%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="spacer"></div>
+
+        <div id="leftCol" class="row">
+            <div class="col-sm-9">
+                <h3>Blogs</h3>
+                <div class="row">
+                    <div class="col">
+                        <div class="card">
+                            <img
+                                class="card-img-top"
+                                src="https://media.routard.com/image/97/7/fb-noel-strasbourg.1472977.jpg"
+                                alt="Card image"
+                            />
+                            <div class="card-body">
+                                <h4 class="card-title">Blog Title</h4>
+                                <p class="card-text">Some example text.</p>
+                                <a href="#" class="btn btn-primary">See Blog</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <img
+                                class="card-img-top"
+                                src="https://media.routard.com/image/97/7/fb-noel-strasbourg.1472977.jpg"
+                                alt="Card image"
+                            />
+                            <div class="card-body">
+                                <h4 class="card-title">Blog Title</h4>
+                                <p class="card-text">Some example text.</p>
+                                <a href="#" class="btn btn-primary">See Blog</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <img
+                                class="card-img-top"
+                                src="https://media.routard.com/image/97/7/fb-noel-strasbourg.1472977.jpg"
+                                alt="Card image"
+                            />
+                            <div class="card-body">
+                                <h4 class="card-title">Blog Title</h4>
+                                <p class="card-text">Some example text.</p>
+                                <a href="#" class="btn btn-primary">See Blog</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <a class="allButton" href="">ALL BLOGS</a>
+                </div>
+
+                <div class="spacer"></div>
+
+                <h3>Some of my works</h3>
+                <div class="row">
+                    <div class="col">
+                        <a href=""
+                            ><img
+                                src="https://media.routard.com/image/97/7/fb-noel-strasbourg.1472977.jpg"
+                        /></a>
+                    </div>
+                    <div class="col">
+                        <a href=""
+                            ><img
+                                src="https://th.bing.com/th/id/OIP.jnwHMbuqF-LxmB1SsGKtfAHaEo?pid=Api&rs=1"
+                        /></a>
+                    </div>
+                    <div class="col">
+                        <a href=""
+                            ><img
+                                src="https://th.bing.com/th/id/OIP.woG4vxOyMHplheyfqZD7gQHaEn?pid=Api&rs=1"
+                        /></a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <a href=""
+                            ><img
+                                src="https://media.routard.com/image/97/7/fb-noel-strasbourg.1472977.jpg"
+                        /></a>
+                    </div>
+                    <div class="col">
+                        <a href=""
+                            ><img
+                                src="https://th.bing.com/th/id/OIP.jnwHMbuqF-LxmB1SsGKtfAHaEo?pid=Api&rs=1"
+                        /></a>
+                    </div>
+                    <div class="col">
+                        <a href=""
+                            ><img
+                                src="https://th.bing.com/th/id/OIP.woG4vxOyMHplheyfqZD7gQHaEn?pid=Api&rs=1"
+                        /></a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <a href=""
+                            ><img
+                                src="https://media.routard.com/image/97/7/fb-noel-strasbourg.1472977.jpg"
+                        /></a>
+                    </div>
+                    <div class="col">
+                        <a href=""
+                            ><img
+                                src="https://th.bing.com/th/id/OIP.jnwHMbuqF-LxmB1SsGKtfAHaEo?pid=Api&rs=1"
+                        /></a>
+                    </div>
+                    <div class="col">
+                        <a href=""
+                            ><img
+                                src="https://th.bing.com/th/id/OIP.woG4vxOyMHplheyfqZD7gQHaEn?pid=Api&rs=1"
+                        /></a>
+                    </div>
+                </div>
+                <div class="row">
+                    <a class="allButton" href="">ALL WORKS</a>
+                </div>
+                <div class="spacer"></div>
+
+                <h3>About Nospa Space</h3>
+                <div class="row">
+                    <div class="col">
+                        <img
+                            id="personalPhoto"
+                            src="https://th.bing.com/th/id/OIP.woG4vxOyMHplheyfqZD7gQHaEn?pid=Api&rs=1"
+                        />
+                    </div>
+                    <div class="col">
+                        <span id="personalDescription"
+                            >Say some things about your self blah blah blah blah
+                            blah blah blah blah blah blah blah blah blah blah
+                            blah blah</span
+                        >
+                    </div>
+                </div>
+
+                <div class="spacer"></div>
+            </div>
+
+            <div id="rightCol" class="col-sm-3">
+                <div class="row">
+                    <h3>Recent Posts</h3>
+                    <div class="row">
+                        <a href=""
+                            ><span class="post"
+                                >Post's information blah blah blah blah blah
+                                blah blah blah blah blah blah blah blah blah<i
+                                    >Read more...</i
+                                ></span
+                            ></a
+                        >
+                    </div>
+                    <div class="row">
+                        <a href=""
+                            ><span class="post"
+                                >Post's information blah blah blah blah blah
+                                blah blah<i>Read more...</i></span
+                            ></a
+                        >
+                    </div>
+                </div>
+                <div class="row">
+                    <h3>Recent Works</h3>
+                    <div class="row" id="rightSlider">
+                        <div
+                            id="myCarousel"
+                            class="carousel slide"
+                            data-ride="carousel"
+                        >
+                            <!-- Indicators -->
+                            <ul class="carousel-indicators">
+                                <li
+                                    data-target="#myCarousel"
+                                    data-slide-to="0"
+                                    class="active"
+                                ></li>
+                                <li
+                                    data-target="#myCarousel"
+                                    data-slide-to="1"
+                                ></li>
+                                <li
+                                    data-target="#myCarousel"
+                                    data-slide-to="2"
+                                ></li>
+                            </ul>
+                            <!-- The slideshow -->
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <a href=""
+                                        ><img
+                                            src="https://th.bing.com/th/id/OIP.woG4vxOyMHplheyfqZD7gQHaEn?pid=Api&rs=1"
+                                    /></a>
+                                </div>
+                                <div class="carousel-item">
+                                    <a href=""
+                                        ><img
+                                            src="https://th.bing.com/th/id/OIP.jnwHMbuqF-LxmB1SsGKtfAHaEo?pid=Api&rs=1"
+                                    /></a>
+                                </div>
+                                <div class="carousel-item">
+                                    <a href=""
+                                        ><img
+                                            src="https://th.bing.com/th/id/OIP.jnwHMbuqF-LxmB1SsGKtfAHaEo?pid=Api&rs=1"
+                                    /></a>
+                                </div>
+                            </div>
+                            <!-- Left and right controls -->
+                            <a
+                                class="carousel-control-prev"
+                                href="#myCarousel"
+                                data-slide="prev"
+                            >
+                                <span class="carousel-control-prev-icon"></span>
+                            </a>
+                            <a
+                                class="carousel-control-next"
+                                href="#myCarousel"
+                                data-slide="next"
+                            >
+                                <span class="carousel-control-next-icon"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            var slideIndex = 1;
+
+            var timer;
+
+            var slideshowContainer;
+
+            window.addEventListener("load", function () {
+                showSlides(slideIndex);
+                timer = setInterval(function () {
+                    plusSlides(1);
+                }, 4000);
+            });
+
+            //Controls the current slide and resets interval if needed
+            function currentSlide(n) {
+                clearInterval(timer);
+                timer = setInterval(function () {
+                    plusSlides(n + 1);
+                }, 4000);
+                showSlides((slideIndex = n));
+            }
+
+            function showSlides(n) {
+                var i;
+                var slides = document.getElementsByClassName("slide");
+                var dots = document.getElementsByClassName("dot");
+                if (n > slides.length) {
+                    slideIndex = 1;
+                }
+                if (n < 1) {
+                    slideIndex = slides.length;
+                }
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(
+                        " active",
+                        ""
+                    );
+                }
+                slides[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].className += " active";
+            }
+
+            pause = () => {
+                clearInterval(timer);
+            };
+
+            resume = () => {
+                clearInterval(timer);
+                timer = setInterval(function () {
+                    plusSlides(slideIndex);
+                }, 4000);
+            };
+        </script>
+    </body>
+</html>

@@ -1,0 +1,37 @@
+{
+    "name": "lit-blog",
+    "version": "1.0.2",
+    "description": "A lit Express.js blog",
+    "main": "src/index.js",
+    "author": "TasosY2K <gustavolama20@gmail.com>",
+    "license": "MIT",
+    "scripts": {
+        "start": "node .",
+        "watch": "nodemon .",
+        "format": "npx prettier --write . --tab-width 4",
+        "createuser": "node utility/createuser.js",
+        "build": "webpack"
+    },
+    "dependencies": {
+        "bcryptjs": "^2.4.3",
+        "body-parser": "^1.19.0",
+        "dotenv": "^8.2.0",
+        "express": "^4.17.1",
+        "express-session": "^1.17.1",
+        "pug": "^3.0.0",
+        "sequelize": "^6.4.0",
+        "speakingurl": "^14.0.1",
+        "sqlite3": "^5.0.1"
+    },
+    "devDependencies": {
+        "bootstrap": "^4.6.0",
+        "css-loader": "^5.0.1",
+        "jquery": "^3.5.1",
+        "nodemon": "^2.0.7",
+        "popper.js": "^1.16.1",
+        "quill": "^1.3.7",
+        "style-loader": "^2.0.0",
+        "webpack": "^5.17.0",
+        "webpack-cli": "^4.4.0"
+    }
+}
