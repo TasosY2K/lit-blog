@@ -17,12 +17,18 @@ const runQuill = () => {
             document.getElementById("createInput").value = JSON.stringify(
                 createPostContent.getContents().ops
             );
+            document.getElementById(
+                "createInputText"
+            ).value = createPostContent.getText();
         });
 
         editPostContent.on("text-change", () => {
             document.getElementById("editInput").value = JSON.stringify(
                 editPostContent.getContents().ops
             );
+            document.getElementById(
+                "editInputText"
+            ).value = editPostContent.getText();
         });
     }
 };

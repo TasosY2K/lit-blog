@@ -16,9 +16,13 @@ const db = require("../models");
 
 db.sequelize.sync();
 
-const uploadDir = process.env.UPLOAD_DIR;
+const folders = ["uploads", "images"];
 
-if (!fs.existsSync(uploadDir)) fs.mkdirSync(uploadDir);
+folders.forEach((folder) => {
+    if (!fs.existsSync(folder)) {
+        fs.mkdirSync(folder);
+    }
+});
 
 const globalConfig = process.env;
 
@@ -30,6 +34,7 @@ app.use(
     })
 );
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use("/img", express.static(`./images`));
 
 app.set("json spaces", 2);
 app.set("view engine", "pug");

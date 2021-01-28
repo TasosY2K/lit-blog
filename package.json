@@ -10,7 +10,8 @@
         "watch": "nodemon .",
         "format": "npx prettier --write . --tab-width 4",
         "createuser": "node utility/createuser.js",
-        "build": "webpack"
+        "build": "webpack",
+        "reset": "node utility/reset.js"
     },
     "dependencies": {
         "bcryptjs": "^2.4.3",
@@ -18,7 +19,10 @@
         "dotenv": "^8.2.0",
         "express": "^4.17.1",
         "express-session": "^1.17.1",
+        "multer": "^1.4.2",
         "pug": "^3.0.0",
+        "quill-delta-to-html": "^0.12.0",
+        "rimraf": "^3.0.2",
         "sequelize": "^6.4.0",
         "speakingurl": "^14.0.1",
         "sqlite3": "^5.0.1"

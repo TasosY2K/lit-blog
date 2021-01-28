@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lit Blog Panel | Settings</title>
+    include header.pug
+</head>
+<body>
+    <div class="d-flex" id="wrapper">
+        include sidebar.pug
+        <div id="page-content-wrapper">
+            include navbar.pug
+            <div class="container-fluid m-4">
+                <div class="row">
+                    <h2>Settings</p>
+                </div>
+                <form>
+                    <div class="row">
+                        <div class="form-group">
+                            <label>Site Name</label>
+                            <input type="text" class="form-control" name="sitename">
+                        </div>
+
+                    <div class="row">
+                        <div class="form-group">
+                            <label>Site Description</label>
+                            <textarea class="form-control" rows="3" name="sitedescription"></textarea>
+                        </div>
+
+                    <div class="row">
+                        <div class="input-group mb-3">
+                            <label>Site Thumbnail</label>
+                            <div class="custom-file">
+                                <input type="file" accept="image/*" class="custom-file-input" name="siteimage">
+                                <label class="custom-file-label">Choose file</label>
+                            </div>
+                        </div>
+
+                    <div class="row">
+                        <div class="input-group mb-3">
+                            <label>Site Icon</label>
+                            <div class="custom-file">
+                                <input type="file" accept="image/*" class="custom-file-input" name="siteicon">
+                                <label class="custom-file-label">Choose file</label>
+                            </div>
+                        </div>
+                    
+                    <div class="row">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

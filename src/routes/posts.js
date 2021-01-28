@@ -1,9 +1,12 @@
+const fs = require("fs");
 const slug = require("speakingurl");
-
+const multer = require("multer");
 const db = require("../../models");
 const gen = require("../../utility/generator.js");
 
 module.exports = (app, globalConfig) => {
+    const upload = multer({ dest: "./uploads" });
+
     app.get("/post/all", (req, res) => {
         db.Posts.findAll().then((results) => {
             if (results.length > 0) {
@@ -41,6 +44,7 @@ module.exports = (app, globalConfig) => {
                             url: results[0].url,
                             author: results[0].author,
                             content: results[0].content,
+                            contentText: results[0].contentText,
                         });
                     } else {
                         res.status(404).send("Post not found");
@@ -54,18 +58,30 @@ module.exports = (app, globalConfig) => {
         }
     });
 
-    app.post("/post/create", (req, res) => {
+    app.post("/post/create", upload.single("image"), (req, res) => {
         if (req.session.loggedin) {
+            const id = gen.id();
             const title = req.body.title;
             const content = req.body.content;
+            const contentText = req.body.contentText;
             const author = req.session.username;
-            if (title && content) {
+            const ext = req.file.originalname.split(".")[
+                req.file.originalname.split(".").length - 1
+            ];
+            fs.copyFileSync(
+                req.file.path,
+                "./images/" + id + "." + ext
+            );
+            fs.unlinkSync(req.file.path);
+            if (title && content && contentText) {
                 db.Posts.create({
-                    id: gen.id(),
+                    id: id,
                     title: title,
                     url: slug(title),
                     author: author,
                     content: content,
+                    contentText: contentText,
+                    image: id + "." + ext
                 }).then(() => {
                     res.redirect("/admin/post");
                 });
@@ -83,22 +99,47 @@ module.exports = (app, globalConfig) => {
         }
     });
 
-    app.post("/post/edit/:id", (req, res) => {
+    app.post("/post/edit/:id", upload.single("image"), (req, res) => {
         if (req.session.loggedin) {
             const id = req.params.id;
             const title = req.body.title;
-            const url = req.body.url;
             const content = req.body.content;
-            if (id && title && content) {
-                db.Posts.update({
+            const contentText = req.body.contentText;
+            
+            let options = {};
+            
+            if (req.file) {
+                const ext = req.file.originalname.split(".")[
+                    req.file.originalname.split(".").length - 1
+                ];
+                fs.copyFileSync(
+                    req.file.path,
+                    "./images/" + id + "." + ext
+                );
+                fs.unlinkSync(req.file.path);
+                options = {
                     title: title,
-                    url: url,
-                    content: content
-                },{
-                    where: {
-                        id: id
+                    content: content,
+                    contentText: contentText,
+                    image: id + "." + ext
+                }
+            } else {
+                options = {
+                    title: title,
+                    content: content,
+                    contentText: contentText
+                }
+            }
+
+            if (id && title && content && contentText) {
+                db.Posts.update(
+                    options,
+                    {
+                        where: {
+                            id: id,
+                        },
                     }
-                });
+                );
                 res.redirect("/admin/post");
             } else {
                 res.render("error", {
@@ -118,12 +159,21 @@ module.exports = (app, globalConfig) => {
         if (req.session.loggedin) {
             const id = req.params.id;
             if (id) {
-                db.Posts.destroy({
+                db.Posts.findAll({
                     where: {
                         id: id
                     }
+                }).then((results) => {
+                    if (results.length > 0) {
+                        db.Posts.destroy({
+                            where: {
+                                id: id,
+                            },
+                        });
+                        res.redirect("/admin/post");
+                        fs.unlinkSync("./images/" + results[0].image);
+                    }
                 });
-                res.redirect("/admin/post");
             } else {
                 res.render("error", {
                     title: "Input Error",

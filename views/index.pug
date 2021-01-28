@@ -1,1 +1,46 @@
-include header.pug
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lit Blog | Main Page</title>
+    include header.pug
+</head>
+<body>
+    include topnav.pug
+    <div class="container">
+        <div id="card-container">
+            if postData[0]
+                <div class="card">
+                    img(class="card-img-top img-fluid" src="/img/" + postData[0].image)
+                    <div class="card-body">
+                        h5(class="card-title")= postData[0].title
+                        p(class="card-text")= postData[0].contentText.substr(0, 200) + "..."
+                        p= postData[0].createdAt
+                        a(class="btn btn-primary" href=postData[0].url) Read more
+                    </div>
+                </div>
+
+            if postData[1]
+                <div class="card">
+                    img(class="card-img-top img-fluid" src="/img/" + postData[1].image)
+                    <div class="card-body">
+                        h5(class="card-title")= postData[1].title
+                        p(class="card-text")= postData[1].contentText.substr(0, 200) + "..."
+                        p= postData[1].createdAt
+                        a(class="btn btn-primary" href=postData[1].url) Read more
+                    </div>
+                </div>
+    
+            if postData[2]
+                <div class="card">
+                    img(class="card-img-top img-fluid" src="/img/" + postData[2].image)
+                    <div class="card-body">
+                        h5(class="card-title")= postData[2].title
+                        p(class="card-text")= postData[2].contentText.substr(0, 200) + "..."
+                        p= postData[2].createdAt
+                        a(class="btn btn-primary" href=postData[2].url) Read more
+                    </div>
+                </div>
+        </div>
+    </div>
+</body>
+</html>

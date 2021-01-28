@@ -38,7 +38,7 @@
                                         td= post.createdAt
                                         td= post.author
                                         <td>
-                                            button(class="btn btn-primary" data-toggle="modal" data-target="#editModal" onclick="editPost('" + post.id + "')") Edit
+                                            button(class="btn btn-primary mr-1" data-toggle="modal" data-target="#editModal" onclick="editPost('" + post.id + "')") Edit
                                             button(class="btn btn-danger" data-toggle="modal" data-target="#deleteModal" onclick="deletePost('" + post.id + "')") Delete
                                         </td>
                                     </tr>
@@ -55,7 +55,7 @@
     <div class="modal fade" id="createModal">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
-                <form action="/post/create" method="post">
+                <form action="/post/create" method="post" enctype="multipart/form-data">
                     <div class="modal-header">
                         <h5 class="modal-title">Create Post</h5>
                         <button type="button" class="close" data-dismiss="modal">
@@ -68,7 +68,17 @@
                                 <span class="input-group-text">Title</span>
                             </div>
                             <input type="text" class="form-control" name="title" required>
-                            <input type="hidden" class="form-control" id="createInput" name="content" required>
+                        </div>
+                        <input type="hidden" class="form-control" id="createInput" name="content" required>
+                        <input type="hidden" class="form-control" id="createInputText" name="contentText" required>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Image</span>
+                            </div>
+                            <div class="custom-file">
+                                <input type="file" accept="image/*" class="custom-file-input" name="image">
+                                <label class="custom-file-label">Choose file</label>
+                            </div>
                         </div>
                         <div id="createQuill"></div>
                     </div>
@@ -83,7 +93,7 @@
     <div class="modal fade" id="editModal">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
-                <form method="post" id="editForm">
+                <form method="post" id="editForm" enctype="multipart/form-data">
                     <div class="modal-header">
                         <h5 class="modal-title">Edit Post</h5>
                         <button type="button" class="close" data-dismiss="modal">
@@ -92,9 +102,21 @@
                     </div>
                     <div class="modal-body">
                         <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Title</span>
+                            </div>
                             <input type="text" class="form-control" id="editTitle" name="title" placeholder="Title" required>
-                            <input type="text" class="form-control" id="editUrl" name="url" placeholder="URL" required>
-                            <input type="hidden" class="form-control" id="editInput" name="content" required>
+                        </div>
+                        <input type="hidden" class="form-control" id="editInput" name="content" required>
+                        <input type="hidden" class="form-control" id="editInputText" name="contentText" required>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Image</span>
+                            </div>
+                            <div class="custom-file">
+                                <input type="file" accept="image/*" class="custom-file-input" name="image">
+                                <label class="custom-file-label">Choose file</label>
+                            </div>
                         </div>
                         <div id="editQuill"></div>
                     </div>
@@ -107,7 +129,7 @@
         </div>
     </div>
     <div class="modal fade" id="deleteModal">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-dialog modal-dialog-centered modal-sm">
             <div class="modal-content">
                 <form method="post" id="deleteForm">
                     <div class="modal-header">

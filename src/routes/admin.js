@@ -40,4 +40,15 @@ module.exports = (app, globalConfig) => {
             res.redirect("/login");
         }
     });
+
+    app.get("/admin/settings", (req, res) => {
+        if (req.session.loggedin) {
+            res.render("adminSettings", {
+                global: globalConfig,
+                username: req.session.username,
+            });
+        } else {
+            res.redirect("/login");
+        }
+    });
 };

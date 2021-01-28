@@ -5,18 +5,22 @@
     include header.pug
 </head>
 <body>
-    include navbar.pug
+    include topnav.pug
     <div class="container">
+        <h2>All posts</p>
         if postData
-            each post in postData
-                <div class="card">
-                    <img class="card-img-top" src="...">
-                    <div class="card-body">
-                        h5(class="card-title")= post.title
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+            <div id="card-container">
+                each post in postData
+                    <div class="card">
+                        img(class="card-img-top img-fluid" src="/img/" + post.image)
+                        <div class="card-body">
+                            h5(class="card-title")= post.title
+                            p(class="card-text")= post.contentText.substr(0, 200) + "..."
+                            p= post.createdAt
+                            a(class="btn btn-primary" href=post.url) Read more
+                        </div>
                     </div>
-                </div>
+            </div>
         else
     </div>
 </body>
