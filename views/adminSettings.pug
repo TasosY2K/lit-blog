@@ -11,43 +11,37 @@
             include navbar.pug
             <div class="container-fluid m-4">
                 <div class="row">
-                    <h2>Settings</p>
-                </div>
-                <form>
-                    <div class="row">
-                        <div class="form-group">
-                            <label>Site Name</label>
-                            <input type="text" class="form-control" name="sitename">
-                        </div>
-
-                    <div class="row">
-                        <div class="form-group">
-                            <label>Site Description</label>
-                            <textarea class="form-control" rows="3" name="sitedescription"></textarea>
-                        </div>
-
-                    <div class="row">
-                        <div class="input-group mb-3">
-                            <label>Site Thumbnail</label>
-                            <div class="custom-file">
-                                <input type="file" accept="image/*" class="custom-file-input" name="siteimage">
-                                <label class="custom-file-label">Choose file</label>
+                    <p class="panelHead">Settings</p>
+                <div>
+                <div class="row">
+                    <div class="col-md">
+                        <form>
+                            <div class="form-group">
+                                <label>Site Name</label>
+                                <input type="text" class="form-control" name="sitename">
                             </div>
-                        </div>
-
-                    <div class="row">
-                        <div class="input-group mb-3">
-                            <label>Site Icon</label>
-                            <div class="custom-file">
-                                <input type="file" accept="image/*" class="custom-file-input" name="siteicon">
-                                <label class="custom-file-label">Choose file</label>
+                            <div class="form-group">
+                                <label>Site Description</label>
+                                <textarea class="form-control" rows="3" name="sitedescription"></textarea>
                             </div>
-                        </div>
-                    
-                    <div class="row">
+                            <div class="form-group mb-3">
+                                <label>Site Thumbnail</label>
+                                <div class="custom-file">
+                                    <input type="file" accept="image/*" class="custom-file-input" name="siteimage">
+                                    <label class="custom-file-label">Choose file</label>
+                                </div>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label>Site Icon</label>
+                                <div class="custom-file">
+                                    <input type="file" accept="image/*" class="custom-file-input" name="siteicon">
+                                    <label class="custom-file-label">Choose file</label>
+                                </div>
+                            </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>

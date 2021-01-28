@@ -45,6 +45,7 @@ module.exports = (app, globalConfig) => {
                             author: results[0].author,
                             content: results[0].content,
                             contentText: results[0].contentText,
+                            image: results[0].image
                         });
                     } else {
                         res.status(404).send("Post not found");
@@ -68,10 +69,7 @@ module.exports = (app, globalConfig) => {
             const ext = req.file.originalname.split(".")[
                 req.file.originalname.split(".").length - 1
             ];
-            fs.copyFileSync(
-                req.file.path,
-                "./images/" + id + "." + ext
-            );
+            fs.copyFileSync(req.file.path, "./images/" + id + "." + ext);
             fs.unlinkSync(req.file.path);
             if (title && content && contentText) {
                 db.Posts.create({
@@ -81,7 +79,7 @@ module.exports = (app, globalConfig) => {
                     author: author,
                     content: content,
                     contentText: contentText,
-                    image: id + "." + ext
+                    image: id + "." + ext,
                 }).then(() => {
                     res.redirect("/admin/post");
                 });
@@ -105,41 +103,35 @@ module.exports = (app, globalConfig) => {
             const title = req.body.title;
             const content = req.body.content;
             const contentText = req.body.contentText;
-            
+
             let options = {};
-            
+
             if (req.file) {
                 const ext = req.file.originalname.split(".")[
                     req.file.originalname.split(".").length - 1
                 ];
-                fs.copyFileSync(
-                    req.file.path,
-                    "./images/" + id + "." + ext
-                );
+                fs.copyFileSync(req.file.path, "./images/" + id + "." + ext);
                 fs.unlinkSync(req.file.path);
                 options = {
                     title: title,
                     content: content,
                     contentText: contentText,
-                    image: id + "." + ext
-                }
+                    image: id + "." + ext,
+                };
             } else {
                 options = {
                     title: title,
                     content: content,
-                    contentText: contentText
-                }
+                    contentText: contentText,
+                };
             }
 
             if (id && title && content && contentText) {
-                db.Posts.update(
-                    options,
-                    {
-                        where: {
-                            id: id,
-                        },
-                    }
-                );
+                db.Posts.update(options, {
+                    where: {
+                        id: id,
+                    },
+                });
                 res.redirect("/admin/post");
             } else {
                 res.render("error", {
@@ -161,8 +153,8 @@ module.exports = (app, globalConfig) => {
             if (id) {
                 db.Posts.findAll({
                     where: {
-                        id: id
-                    }
+                        id: id,
+                    },
                 }).then((results) => {
                     if (results.length > 0) {
                         db.Posts.destroy({

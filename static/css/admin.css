@@ -1,5 +1,16 @@
 .panelHead {
-    font-size: 1.5rem;
-    padding: 0;
-    margin: 0 10px 0 0;
+	font-size: 1.5rem;
+	padding: 0;
+	margin: 0 10px 0 0;
+}
+
+.imgContainer {
+	width: 100%;
+	background-color: #b9b9b9;
+	padding: 15px;
+}
+
+#createImgPreview,
+#editImgPreview {
+	max-height: 30vh;
 }
