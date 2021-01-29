@@ -6,7 +6,12 @@ module.exports = (app, globalConfig) => {
         if (req.session.loggedin) {
             res.redirect("/admin");
         } else {
-            res.render("login", {global: globalConfig});
+            db.Settings.findAll().then((settings) => {
+                res.render("login", {
+                    global: globalConfig,
+                    settings: settings[0].dataValues
+                });
+            });
         }
     });
 
@@ -28,14 +33,32 @@ module.exports = (app, globalConfig) => {
                         req.session.password = password;
                         res.redirect("/admin");
                     } else {
-                        res.render("login", { error: "Incorrect password", global: globalConfig });
+                        db.Settings.findAll().then((settings) => {
+                            res.render("login", {
+                                error: "Incorrect username or password",
+                                global: globalConfig,
+                                settings: settings[0].dataValues
+                            });
+                        });
                     }
                 } else {
-                    res.render("login", { error: "User doesn't exist", global: globalConfig });
+                    db.Settings.findAll().then((settings) => {
+                        res.render("login", {
+                            error: "Incorrect username or password",
+                            global: globalConfig,
+                            settings: settings[0].dataValues
+                        });
+                    });
                 }
             });
         } else {
-            res.render("login", { error: "Empty fields", global: globalConfig });
+            db.Settings.findAll().then((settings) => {
+                res.render("login", {
+                    error: "Empty fields",
+                    global: globalConfig,
+                    settings: settings[0].dataValues
+                });
+            });
         }
     });
 };

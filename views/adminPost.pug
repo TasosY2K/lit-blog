@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Lit Blog Panel | Posts</title>
+    link(rel="shortcut icon", href=settings.siteIcon)
     include header.pug
 </head>
 <body>
@@ -12,7 +13,7 @@
             <div class="container-fluid m-4">
                 <div class="row">
                     <p class="panelHead">Your Posts</p>
-                    button(class="btn successBtn" data-toggle="modal" data-target="#createModal") Create Post
+                    button(class="btn successBtn" data-toggle="modal" data-target="#createModal") Create Post <i class="las la-plus"></i>
                 </div>
                 <div class="row table-responsive">
                     <table class="mt-3" id="main_table" style="width: 100%">
@@ -38,8 +39,8 @@
                                         td= post.createdAt
                                         td= post.author
                                         <td>
-                                            button(class="btn primaryBtn mr-2" data-toggle="modal" data-target="#editModal" onclick="editPost('" + post.id + "')") Edit
-                                            button(class="btn dangerBtn" data-toggle="modal" data-target="#deleteModal" onclick="deletePost('" + post.id + "')") Delete
+                                            button(class="btn primaryBtn mr-2" data-toggle="modal" data-target="#editModal" onclick="editPost('" + post.id + "')") Edit <i class="las la-edit"></i>
+                                            button(class="btn dangerBtn" data-toggle="modal" data-target="#deleteModal" onclick="deletePost('" + post.id + "')") Delete <i class="las la-trash"></i>
                                         </td>
                                     </tr>
                             else
@@ -59,7 +60,7 @@
                     <div class="modal-header">
                         <h5 class="modal-title">Create Post</h5>
                         <button type="button" class="close" data-dismiss="modal">
-                            <span id="timesSpan" aria-hidden="true">&times;</span>
+                            <span id="timesSpan" aria-hidden="true"><i class="las la-times"></i></span>
                         </button>
                     </div>
                     <div class="modal-body">
@@ -100,7 +101,7 @@
                     <div class="modal-header">
                         <h5 class="modal-title">Edit Post</h5>
                         <button type="button" class="close" data-dismiss="modal">
-                            <span id="timesSpan" aria-hidden="true">&times;</span>
+                            <span id="timesSpan" aria-hidden="true"><i class="las la-times"></i></span>
                         </button>
                     </div>
                     <div class="modal-body">
@@ -141,7 +142,7 @@
                     <div class="modal-header">
                         <h5 class="modal-title">Delete Post</h5>
                         <button type="button" class="close" data-dismiss="modal">
-                            <span id="timesSpan" aria-hidden="true">&times;</span>
+                            <span id="timesSpan" aria-hidden="true"><i class="las la-times"></i></span>
                         </button>
                     </div>
                     <div class="modal-body">

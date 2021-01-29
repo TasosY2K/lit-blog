@@ -8,19 +8,24 @@ module.exports = (app, globalConfig) => {
     const upload = multer({ dest: "./uploads" });
 
     app.get("/post/all", (req, res) => {
-        db.Posts.findAll().then((results) => {
-            if (results.length > 0) {
-                res.render("allPosts", {
-                    global: globalConfig,
-                    username: req.session.username,
-                    postData: results,
-                });
-            } else {
-                res.render("allPosts", {
-                    global: globalConfig,
-                    username: req.session.username,
-                });
-            }
+        db.Settings.findAll().then((settings) => {
+            siteSettings = settings[0].dataValues;
+            db.Posts.findAll().then((results) => {
+                if (results.length > 0) {
+                    res.render("allPosts", {
+                        global: globalConfig,
+                        settings: siteSettings,
+                        username: req.session.username,
+                        postData: results,
+                    });
+                } else {
+                    res.render("allPosts", {
+                        global: globalConfig,
+                        settings: siteSettings,
+                        username: req.session.username,
+                    });
+                }
+            });
         });
     });
 

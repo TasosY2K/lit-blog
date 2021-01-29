@@ -6,10 +6,11 @@
     meta(name="description", content=settings.siteDescription)
     include header.pug
 </head>
-<body>
+<body id="body">
+    span(id="bgImg")= settings.siteImage
     include topnav.pug
-    <div class="container-fluid">
-        <h2>All posts</p>
+    <div class="container">
+        <h2 class="text-light mb-3 mt-4">All posts</p>
         if postData
             <div id="card-container">
                 each post in postData
@@ -17,13 +18,14 @@
                         img(class="card-img-top img-fluid" src="/img/" + post.image)
                         <div class="card-body">
                             h5(class="card-title")= post.title
-                            p(class="card-text")= post.contentText.substr(0, 200) + "..."
-                            p= post.createdAt
-                            a(class="btn btn-primary" href=post.url) Read more
+                            p(class="card-text postDescription")= post.contentText.substr(0, 200) + "..."
+                            p(class="dateText")= post.createdAt
+                            a(class="btn primaryBtn" href="/post/" + post.url) Read more
                         </div>
                     </div>
             </div>
         else
+            <p class="text-white postDescription">No posts found</p>
     </div>
 </body>
 </html>
