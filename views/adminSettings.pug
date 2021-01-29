@@ -9,39 +9,39 @@
         include sidebar.pug
         <div id="page-content-wrapper">
             include navbar.pug
-            <div class="container-fluid m-4">
-                <div class="row">
-                    <p class="panelHead">Settings</p>
-                <div>
-                <div class="row">
-                    <div class="col-md">
-                        <form>
-                            <div class="form-group">
-                                <label>Site Name</label>
-                                <input type="text" class="form-control" name="sitename">
-                            </div>
-                            <div class="form-group">
-                                <label>Site Description</label>
-                                <textarea class="form-control" rows="3" name="sitedescription"></textarea>
-                            </div>
-                            <div class="form-group mb-3">
-                                <label>Site Thumbnail</label>
-                                <div class="custom-file">
-                                    <input type="file" accept="image/*" class="custom-file-input" name="siteimage">
-                                    <label class="custom-file-label">Choose file</label>
-                                </div>
-                            </div>
-                            <div class="form-group mb-3">
-                                <label>Site Icon</label>
-                                <div class="custom-file">
-                                    <input type="file" accept="image/*" class="custom-file-input" name="siteicon">
-                                    <label class="custom-file-label">Choose file</label>
-                                </div>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </form>
+            <div class="container m-4 pr-4">
+                <p class="panelHead mb-3">Settings</p>
+                <form action="/settings/edit" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label>Site Name</label>
+                        input(type="text" class="form-control" name="sitename" value=settingData.siteName required)
                     </div>
-                </div>
+                    <div class="form-group">
+                        <label>Site Description</label>
+                        textarea(class="form-control" rows="3" name="sitedescription" required)= settingData.siteDescription
+                    </div>
+                    <div class="form-group mb-3">
+                        <label>Site Thumbnail</label>
+                        <div class="custom-file">
+                            <input type="file" accept="image/*" class="custom-file-input" id="siteImgInput" name="siteimage">
+                            <label class="custom-file-label">Choose file</label>
+                        </div>
+                    </div>
+                    <div class="imgContainer mb-3">
+                        img(id="siteImgPreview" src=settingData.siteImage)
+                    </div>
+                    <div class="form-group mb-3">
+                        <label>Site Icon</label>
+                        <div class="custom-file">
+                            <input type="file" accept="image/*" class="custom-file-input" id="iconImgInput" name="siteicon">
+                            <label class="custom-file-label">Choose file</label>
+                        </div>
+                    </div>
+                    <div class="imgContainer mb-3">
+                        img(id="iconImgPreview" src=settingData.siteIcon)
+                    </div>
+                    <button type="submit" class="btn successBtn">Save Changes</button>
+                </form>
             </div>
         </div>
     </div>

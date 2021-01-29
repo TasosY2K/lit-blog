@@ -6,7 +6,7 @@ module.exports = (app, globalConfig) => {
         if (req.session.loggedin) {
             res.redirect("/admin");
         } else {
-            res.render("login");
+            res.render("login", {global: globalConfig});
         }
     });
 
@@ -28,14 +28,14 @@ module.exports = (app, globalConfig) => {
                         req.session.password = password;
                         res.redirect("/admin");
                     } else {
-                        res.render("login", { error: "Incorrect password" });
+                        res.render("login", { error: "Incorrect password", global: globalConfig });
                     }
                 } else {
-                    res.render("login", { error: "User doesn't exist" });
+                    res.render("login", { error: "User doesn't exist", global: globalConfig });
                 }
             });
         } else {
-            res.render("login", { error: "Empty fields" });
+            res.render("login", { error: "Empty fields", global: globalConfig });
         }
     });
 };

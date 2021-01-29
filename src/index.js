@@ -12,6 +12,8 @@ const port = process.env.WEB_PORT;
 const filewalker = require("../utility/fileWalker.js");
 const gen = require("../utility/generator.js");
 
+let globalConfig = process.env;
+
 const db = require("../models");
 
 db.sequelize.sync();
@@ -23,8 +25,6 @@ folders.forEach((folder) => {
         fs.mkdirSync(folder);
     }
 });
-
-const globalConfig = process.env;
 
 app.use(
     session({

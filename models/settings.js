@@ -1,5 +1,10 @@
 module.exports = (sequelize, Sequelize) => {
-    const Settings = sequelize.define("post", {
+    const Settings = sequelize.define("setting", {
+        id: {
+            type: Sequelize.INTEGER,
+            autoIncrement: true,
+            primaryKey: true
+        },
         siteName: {
             type: Sequelize.STRING,
             allowNull: false,

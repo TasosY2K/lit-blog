@@ -1,46 +1,52 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Lit Blog | Main Page</title>
+    title= settings.siteName + " | Main Page"
+    link(rel="shortcut icon", href=settings.siteIcon)
+    meta(name="description", content=settings.siteDescription)
     include header.pug
+    meta
 </head>
-<body>
+<body id="body">
+    span(id="bgImg")= settings.siteImage
     include topnav.pug
     <div class="container">
-        <div id="card-container">
-            if postData[0]
+        <h2 class="text-light mt-4">Latest Posts</h2>
+        <div id="card-container" class="mt-3">
+            if postData[postData.length -1]
                 <div class="card">
-                    img(class="card-img-top img-fluid" src="/img/" + postData[0].image)
+                    img(class="card-img-top img-fluid" src="/img/" + postData[postData.length  -1].image)
                     <div class="card-body">
-                        h5(class="card-title")= postData[0].title
-                        p(class="card-text")= postData[0].contentText.substr(0, 200) + "..."
-                        p= postData[0].createdAt
-                        a(class="btn btn-primary" href=postData[0].url) Read more
+                        h5(class="card-title")= postData[postData.length -1].title
+                        p(class="card-text")= postData[postData.length -1].contentText.substr(0, 200) + "..."
+                        p= postData[postData.length -1].createdAt
+                        a(class="btn primaryBtn" href=postData[postData.length -1].url) Read more
                     </div>
                 </div>
 
-            if postData[1]
+            if postData[postData.length -2]
                 <div class="card">
-                    img(class="card-img-top img-fluid" src="/img/" + postData[1].image)
+                    img(class="card-img-top img-fluid" src="/img/" + postData[postData.length -2].image)
                     <div class="card-body">
-                        h5(class="card-title")= postData[1].title
-                        p(class="card-text")= postData[1].contentText.substr(0, 200) + "..."
-                        p= postData[1].createdAt
-                        a(class="btn btn-primary" href=postData[1].url) Read more
+                        h5(class="card-title")= postData[postData.length -2].title
+                        p(class="card-text")= postData[postData.length -2].contentText.substr(0, 200) + "..."
+                        p= postData[postData.length -2].createdAt
+                        a(class="btn primaryBtn" href=postData[postData.length -2].url) Read more
                     </div>
                 </div>
     
-            if postData[2]
+            if postData[postData.length -3]
                 <div class="card">
-                    img(class="card-img-top img-fluid" src="/img/" + postData[2].image)
+                    img(class="card-img-top img-fluid" src="/img/" + postData[postData.length -3].image)
                     <div class="card-body">
-                        h5(class="card-title")= postData[2].title
-                        p(class="card-text")= postData[2].contentText.substr(0, 200) + "..."
-                        p= postData[2].createdAt
-                        a(class="btn btn-primary" href=postData[2].url) Read more
+                        h5(class="card-title")= postData[postData.length -3].title
+                        p(class="card-text")= postData[postData.length -3].contentText.substr(0, 200) + "..."
+                        p= postData[postData.length -3].createdAt
+                        a(class="btn primaryBtn" href=postData[postData.length -3].url) Read more
                     </div>
                 </div>
         </div>
+        <a href="/posts/all" class="moreBtn btn mt-3">All Posts</a>
     </div>
 </body>
 </html>

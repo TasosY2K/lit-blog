@@ -43,9 +43,12 @@ module.exports = (app, globalConfig) => {
 
     app.get("/admin/settings", (req, res) => {
         if (req.session.loggedin) {
-            res.render("adminSettings", {
-                global: globalConfig,
-                username: req.session.username,
+            db.Settings.findAll().then((results) => {
+                res.render("adminSettings", {
+                    global: globalConfig,
+                    username: req.session.username,
+                    settingData: results[0],
+                });
             });
         } else {
             res.redirect("/login");

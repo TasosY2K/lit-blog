@@ -11,6 +11,7 @@
         "format": "npx prettier --write . --tab-width 4",
         "createuser": "node utility/createuser.js",
         "build": "webpack",
+        "seed": "node utility/seed.js",
         "reset": "node utility/reset.js"
     },
     "dependencies": {

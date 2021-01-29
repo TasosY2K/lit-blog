@@ -45,7 +45,7 @@ module.exports = (app, globalConfig) => {
                             author: results[0].author,
                             content: results[0].content,
                             contentText: results[0].contentText,
-                            image: results[0].image
+                            image: results[0].image,
                         });
                     } else {
                         res.status(404).send("Post not found");

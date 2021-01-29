@@ -2,15 +2,32 @@
 	font-size: 1.5rem;
 	padding: 0;
 	margin: 0 10px 0 0;
+	color: rgb(233, 233, 233) !important;
+}
+
+#main_table {
+	color: rgb(218, 216, 216) !important;
 }
 
 .imgContainer {
 	width: 100%;
-	background-color: #b9b9b9;
+	background-color: #090d20;
 	padding: 15px;
 }
 
+label {
+	color: rgba(211, 211, 211, 1) !important;
+}
+
+.custom-file-input {
+	border-radius: 0 !important;
+	border: rgba(17, 26, 59, 1) 1px solid !important;
+	background-color: red !important;
+}
+
 #createImgPreview,
-#editImgPreview {
+#editImgPreview,
+#siteImgPreview,
+#iconImgPreview {
 	max-height: 30vh;
 }
