@@ -21,6 +21,25 @@
                         <label>Site Description</label>
                         textarea(class="form-control" rows="3" name="sitedescription" required)= settingData.siteDescription
                     </div>
+                    <label>Socials</label>
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="lab la-instagram"></i></span>
+                        </div>
+                        input(type="text" class="form-control" name="instagram" value=settingData.instagram required)
+                    </div>
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="lab la-facebook"></i></span>
+                        </div>
+                        input(type="text" class="form-control" name="facebook" value=settingData.facebook required)
+                    </div>
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="las la-envelope"></i></span>
+                        </div>
+                        input(type="text" class="form-control" name="email" value=settingData.email required)
+                    </div>
                     <div class="form-group mb-3">
                         <label>Site Thumbnail</label>
                         <div class="custom-file">

@@ -7,7 +7,7 @@
     include header.pug
     meta
 </head>
-<body id="body">
+<body id="body" class="d-flex flex-column min-vh-100">
     span(id="bgImg")= settings.siteImage
     include topnav.pug
     <div class="container">
@@ -51,5 +51,6 @@
         else
             <p class="text-white postDescription">No posts found</p>
     </div>
+    include footer.pug
 </body>
 </html>

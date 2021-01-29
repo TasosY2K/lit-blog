@@ -1,59 +1,75 @@
 body {
-	margin: 0;
-	background-color: #000;
-	font-family: "Roboto", sans-serif;
+    margin: 0;
+    background-color: #000;
+    font-family: "Roboto", sans-serif;
 }
 
 .btn:focus,
 .btn:active,
 input:focus,
 input:active {
-	outline: none !important;
-	box-shadow: none !important;
+    outline: none !important;
+    box-shadow: none !important;
 }
 
 .form-control:focus,
 .form-control:active {
-	outline: none !important;
-	box-shadow: none;
-	background-color: rgba(255, 255, 255, 0.034);
-	border: rgba(17, 26, 59, 1) 1px solid !important;
+    outline: none !important;
+    box-shadow: none;
+    background-color: rgba(255, 255, 255, 0.034);
+    border: rgba(17, 26, 59, 1) 1px solid !important;
 }
 
 .form-control {
-	border-radius: 0 !important;
-	border: rgba(17, 26, 59, 1) 1px solid !important;
-	background-color: transparent;
-	transition: 0.3s;
-	color: rgba(211, 211, 211, 1) !important;
+    border-radius: 0 !important;
+    border: rgba(17, 26, 59, 1) 1px solid !important;
+    background-color: transparent;
+    transition: 0.3s;
+    color: rgba(211, 211, 211, 1) !important;
 }
 
 .form-control:hover {
-	background-color: rgba(255, 255, 255, 0.034);
+    background-color: rgba(255, 255, 255, 0.034);
 }
 
 .input-group-text {
-	color: rgba(211, 211, 211, 1) !important;
-	border: rgba(17, 26, 59, 1) 1px solid !important;
-	background-color: transparent !important;
-	border-radius: 0 !important;
-	border-right: none !important;
+    color: rgba(211, 211, 211, 1) !important;
+    border: rgba(17, 26, 59, 1) 1px solid !important;
+    background-color: transparent !important;
+    border-radius: 0 !important;
+    border-right: none !important;
 }
 
 #timesSpan {
-	color: rgba(211, 211, 211, 1) !important;
-	text-shadow: none !important;
+    color: rgba(211, 211, 211, 1) !important;
+    text-shadow: none !important;
 }
 
 .postDescription {
-	font-size: 1rem;
+    font-size: 1rem;
 }
 
 .dateText {
-	font-size: 1rem;
-	font-style: italic;
+    font-size: 1rem;
+    font-style: italic;
 }
 
 #bgImg {
-	display: none;
+    display: none;
+}
+
+.footer {
+    color: rgba(211, 211, 211, 1) !important;
+    text-align: center;
+    padding: 13px;
+    font-size: 1.2rem;
+}
+
+.footer a {
+    text-decoration: none !important;
+    color: rgba(211, 211, 211, 1) !important;
+}
+
+.footer a:hover {
+    color: rgb(150, 150, 150) !important;
 }

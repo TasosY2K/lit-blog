@@ -1,59 +1,59 @@
 .primaryBtn {
-	border-radius: 0 !important;
-	border: rgba(17, 26, 59, 1) 1px solid !important;
-	color: rgba(211, 211, 211, 1);
-	text-decoration: none !important;
-	transition: 0.3s;
+    border-radius: 0 !important;
+    border: rgb(25, 39, 87) 1px solid !important;
+    color: rgba(211, 211, 211, 1);
+    text-decoration: none !important;
+    transition: 0.3s;
 }
 
 .primaryBtn:hover {
-	border: rgb(28, 43, 97) 1px solid !important;
-	text-decoration: none !important;
-	color: rgba(211, 211, 211, 1);
+    border: rgb(37, 57, 128) 1px solid !important;
+    text-decoration: none !important;
+    color: rgba(211, 211, 211, 1);
 }
 
 .successBtn {
-	border-radius: 0 !important;
-	border: rgb(27, 92, 36) 1px solid !important;
-	color: rgba(211, 211, 211, 1);
-	text-decoration: none !important;
-	transition: 0.3s;
+    border-radius: 0 !important;
+    border: rgb(27, 92, 36) 1px solid !important;
+    color: rgba(211, 211, 211, 1);
+    text-decoration: none !important;
+    transition: 0.3s;
 }
 
 .successBtn:hover {
-	border: rgb(40, 133, 54) 1px solid !important;
-	text-decoration: none !important;
-	color: rgba(211, 211, 211, 1);
+    border: rgb(40, 133, 54) 1px solid !important;
+    text-decoration: none !important;
+    color: rgba(211, 211, 211, 1);
 }
 
 .dangerBtn {
-	border-radius: 0 !important;
-	border: rgb(92, 27, 27) 1px solid !important;
-	color: rgba(211, 211, 211, 1);
-	text-decoration: none !important;
-	transition: 0.3s;
+    border-radius: 0 !important;
+    border: rgb(92, 27, 27) 1px solid !important;
+    color: rgba(211, 211, 211, 1);
+    text-decoration: none !important;
+    transition: 0.3s;
 }
 
 .dangerBtn:hover {
-	border: rgb(133, 40, 40) 1px solid !important;
-	text-decoration: none !important;
-	color: rgba(211, 211, 211, 1);
+    border: rgb(133, 40, 40) 1px solid !important;
+    text-decoration: none !important;
+    color: rgba(211, 211, 211, 1);
 }
 
 .moreBtn {
-	border-radius: 0 !important;
-	padding: 12px;
-	margin-top: 20px !important;
-	text-decoration: none !important;
-	font-size: 1.3rem;
-	border: rgba(17, 26, 59, 1) 1px solid !important;
-	background-color: rgba(17, 26, 59, 1) !important;
-	color: rgba(211, 211, 211, 1);
-	transition: 0.3s;
+    border-radius: 0 !important;
+    padding: 12px;
+    margin-top: 20px !important;
+    text-decoration: none !important;
+    font-size: 1.3rem;
+    border: rgba(17, 26, 59, 1) 1px solid !important;
+    background-color: rgba(17, 26, 59, 1) !important;
+    color: rgba(211, 211, 211, 1);
+    transition: 0.3s;
 }
 
 .moreBtn:hover {
-	text-decoration: none !important;
-	color: rgba(211, 211, 211, 1);
-	background-color: rgba(28, 44, 98, 1) !important;
+    text-decoration: none !important;
+    color: rgba(211, 211, 211, 1);
+    background-color: rgba(28, 44, 98, 1) !important;
 }

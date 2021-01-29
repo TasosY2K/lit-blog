@@ -9,7 +9,7 @@ module.exports = (app, globalConfig) => {
             db.Settings.findAll().then((settings) => {
                 res.render("login", {
                     global: globalConfig,
-                    settings: settings[0].dataValues
+                    settings: settings[0].dataValues,
                 });
             });
         }
@@ -37,7 +37,7 @@ module.exports = (app, globalConfig) => {
                             res.render("login", {
                                 error: "Incorrect username or password",
                                 global: globalConfig,
-                                settings: settings[0].dataValues
+                                settings: settings[0].dataValues,
                             });
                         });
                     }
@@ -46,7 +46,7 @@ module.exports = (app, globalConfig) => {
                         res.render("login", {
                             error: "Incorrect username or password",
                             global: globalConfig,
-                            settings: settings[0].dataValues
+                            settings: settings[0].dataValues,
                         });
                     });
                 }
@@ -56,7 +56,7 @@ module.exports = (app, globalConfig) => {
                 res.render("login", {
                     error: "Empty fields",
                     global: globalConfig,
-                    settings: settings[0].dataValues
+                    settings: settings[0].dataValues,
                 });
             });
         }

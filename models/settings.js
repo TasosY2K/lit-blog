@@ -3,7 +3,7 @@ module.exports = (sequelize, Sequelize) => {
         id: {
             type: Sequelize.INTEGER,
             autoIncrement: true,
-            primaryKey: true
+            primaryKey: true,
         },
         siteName: {
             type: Sequelize.STRING,
@@ -18,6 +18,18 @@ module.exports = (sequelize, Sequelize) => {
             allowNull: false,
         },
         siteIcon: {
+            type: Sequelize.STRING,
+            allowNull: false,
+        },
+        instagram: {
+            type: Sequelize.STRING,
+            allowNull: false,
+        },
+        facebook: {
+            type: Sequelize.STRING,
+            allowNull: false,
+        },
+        email: {
             type: Sequelize.STRING,
             allowNull: false,
         },

@@ -1,22 +1,22 @@
 .card {
-	color: rgba(211, 211, 211, 1);
-	background-color: rgba(3, 4, 10, 1) !important;
-	border: rgba(42, 42, 42, 1) solid 1px !important;
-	border-radius: 0 !important;
-	transition: 0.3s;
+    color: rgba(211, 211, 211, 1);
+    background-color: rgba(3, 4, 10, 1) !important;
+    border: rgba(42, 42, 42, 1) solid 1px !important;
+    border-radius: 0 !important;
+    transition: 0.3s;
 }
 
 .card:hover {
-	background-color: rgba(6, 9, 20, 1) !important;
+    background-color: rgba(6, 9, 20, 1) !important;
 }
 
 .modal-footer {
-	border-top: rgba(42, 42, 42, 1) solid 1px !important;
+    border-top: rgba(42, 42, 42, 1) solid 1px !important;
 }
 .modal-header {
-	border-bottom: rgba(42, 42, 42, 1) solid 1px !important;
+    border-bottom: rgba(42, 42, 42, 1) solid 1px !important;
 }
 
 .card-img-top {
-	max-height: 25vh;
+    max-height: 25vh;
 }

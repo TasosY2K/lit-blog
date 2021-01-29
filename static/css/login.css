@@ -1,14 +1,14 @@
 .center {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .bottom {
-	position: absolute;
-	top: 95%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	color: rgba(211, 211, 211, 1) !important;
+    position: absolute;
+    top: 95%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(211, 211, 211, 1) !important;
 }

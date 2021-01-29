@@ -15,7 +15,7 @@ module.exports = (app, globalConfig) => {
                 res.render("adminDashboard", {
                     global: globalConfig,
                     username: req.session.username,
-                    settings: results[0]
+                    settings: results[0],
                 });
             });
         } else {
@@ -32,13 +32,13 @@ module.exports = (app, globalConfig) => {
                             global: globalConfig,
                             username: req.session.username,
                             postData: results,
-                            settings: settings[0]
+                            settings: settings[0],
                         });
                     } else {
                         res.render("adminPost", {
                             global: globalConfig,
                             username: req.session.username,
-                            settings: settings[0]
+                            settings: settings[0],
                         });
                     }
                 });

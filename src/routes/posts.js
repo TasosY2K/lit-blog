@@ -29,8 +29,33 @@ module.exports = (app, globalConfig) => {
         });
     });
 
-    app.get("/post/:id", (req, res) => {
-        res.render("post");
+    app.get("/post/:url", (req, res) => {
+        const url = req.params.url;
+        if (url) {
+            db.Posts.findAll({
+                where: {
+                    url: url,
+                },
+            }).then((results) => {
+                if (results.length > 0) {
+                    db.Settings.findAll().then((settings) => {
+                        siteSettings = settings[0].dataValues;
+                        res.render("post", {
+                            global: globalConfig,
+                            settings: siteSettings,
+                            postData: results[0],
+                        });
+                    });
+                } else {
+                    res.render("error", {
+                        title: "Post not found",
+                        message: "Post not found or removed",
+                    });
+                }
+            });
+        } else {
+            res.status(406).send("Missing fields");
+        }
     });
 
     app.get("/post/content/:id", (req, res) => {
