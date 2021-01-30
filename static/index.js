@@ -10,7 +10,6 @@ import "./css/allposts.css";
 import "./css/card.css";
 import "./css/topnav.css";
 import "./css/buttons.css";
-import "./css/inputs.css";
 
 import "./js/sidebar.js";
 import "./js/quill.js";

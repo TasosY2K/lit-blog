@@ -10,9 +10,9 @@
         include sidebar.pug
         <div id="page-content-wrapper">
             include navbar.pug
-            <div class="container m-4 pr-4">
+            <div class="container pl-0 m-4">
                 <p class="panelHead mb-3">Settings</p>
-                <form action="/settings/edit" method="post" enctype="multipart/form-data">
+                <form action="/settings/edit" class="mr-4" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <label>Site Name</label>
                         input(type="text" class="form-control" name="sitename" value=settingData.siteName required)
@@ -41,7 +41,7 @@
                         input(type="text" class="form-control" name="email" value=settingData.email required)
                     </div>
                     <div class="form-group mb-3">
-                        <label>Site Thumbnail</label>
+                        <label>Site Wallpaper</label>
                         <div class="custom-file">
                             <input type="file" accept="image/*" class="custom-file-input" id="siteImgInput" name="siteimage">
                             <label class="custom-file-label">Choose file</label>

@@ -73,3 +73,17 @@ input:active {
 .footer a:hover {
     color: rgb(150, 150, 150) !important;
 }
+
+#bgContent {
+    display: none;
+}
+
+#postContainer {
+    color: rgba(211, 211, 211, 1) !important;
+    word-wrap: break-word;
+}
+
+.line {
+    background-color: rgb(187, 187, 187) !important;
+    height: 1px;
+}

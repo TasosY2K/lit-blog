@@ -27,7 +27,23 @@ label {
 
 #createImgPreview,
 #editImgPreview,
+#createImgPreview1,
+#editImgPreview1,
+#createImgPreview2,
+#editImgPreview2,
+#createImgPreview3,
+#editImgPreview3,
 #siteImgPreview,
 #iconImgPreview {
     max-height: 25vh;
+}
+
+.tableLink {
+    color: rgb(42, 65, 141) !important;
+    transition: 0.3s;
+}
+
+.tableLink:hover {
+    text-decoration: none !important;
+    color: rgb(37, 56, 122) !important;
 }

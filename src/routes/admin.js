@@ -48,6 +48,31 @@ module.exports = (app, globalConfig) => {
         }
     });
 
+    app.get("/admin/project", (req, res) => {
+        if (req.session.loggedin) {
+            db.Settings.findAll().then((settings) => {
+                db.Projects.findAll().then((results) => {
+                    if (results.length > 0) {
+                        res.render("adminProject", {
+                            global: globalConfig,
+                            username: req.session.username,
+                            postData: results,
+                            settings: settings[0],
+                        });
+                    } else {
+                        res.render("adminProject", {
+                            global: globalConfig,
+                            username: req.session.username,
+                            settings: settings[0],
+                        });
+                    }
+                });
+            });
+        } else {
+            res.redirect("/login");
+        }
+    });
+
     app.get("/admin/settings", (req, res) => {
         if (req.session.loggedin) {
             db.Settings.findAll().then((results) => {

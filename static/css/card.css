@@ -19,4 +19,5 @@
 
 .card-img-top {
     max-height: 25vh;
+    border-radius: 0 !important;
 }

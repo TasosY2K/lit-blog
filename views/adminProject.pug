@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Lit Blog Panel | Posts</title>
+    <title>Lit Blog Panel | Projects</title>
     link(rel="shortcut icon", href=settings.siteIcon)
     include header.pug
 </head>
@@ -12,8 +12,8 @@
             include navbar.pug
             <div class="container-fluid m-4">
                 <div class="row">
-                    <p class="panelHead">Your Posts</p>
-                    button(class="btn successBtn" data-toggle="modal" data-target="#createModal") Create Post <i class="las la-plus"></i>
+                    <p class="panelHead">Your Projects</p>
+                    button(class="btn successBtn" data-toggle="modal" data-target="#createModal") Create Project <i class="las la-plus"></i>
                 </div>
                 <div class="row table-responsive">
                     <table class="mt-3" id="main_table" style="width: 100%">
@@ -34,18 +34,18 @@
                                         td= post.id
                                         td= post.title
                                         <td>
-                                            a(class="tableLink" target="_blank" href="/post/" + post.url)= "/" + post.url
+                                            a(class="tableLink" target="_blank" href="/project/" + post.url)= "/" + post.url
                                         <td>
                                         td= post.createdAt
                                         td= post.author
                                         <td>
-                                            button(class="btn primaryBtn mr-2" data-toggle="modal" data-target="#editModal" onclick="editPost('" + post.id + "')") Edit <i class="las la-edit"></i>
-                                            button(class="btn dangerBtn" data-toggle="modal" data-target="#deleteModal" onclick="deletePost('" + post.id + "')") Delete <i class="las la-trash"></i>
+                                            button(class="btn primaryBtn mr-2" data-toggle="modal" data-target="#editModal" onclick="editProject('" + post.id + "')") Edit <i class="las la-edit"></i>
+                                            button(class="btn dangerBtn" data-toggle="modal" data-target="#deleteModal" onclick="deleteProject('" + post.id + "')") Delete <i class="las la-trash"></i>
                                         </td>
                                     </tr>
                             else
                                 <tr>
-                                    <td>No posts found</td>
+                                    <td>No projects found</td>
                                 </tr>
                         </tbody>
                     </table>
@@ -56,7 +56,7 @@
     <div class="modal fade" id="createModal">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="card modal-content">
-                <form action="/post/create" method="post" enctype="multipart/form-data">
+                <form action="/project/create" method="post" enctype="multipart/form-data">
                     <div class="modal-header">
                         <h5 class="modal-title">Create Post</h5>
                         <button type="button" class="close" data-dismiss="modal">
@@ -74,15 +74,39 @@
                         <input type="hidden" class="form-control" id="createInputText" name="contentText" required>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <span class="input-group-text">Image</span>
+                                <span class="input-group-text">Image 1</span>
                             </div>
                             <div class="custom-file">
-                                <input type="file" accept="image/*" class="custom-file-input" id="createImgInput" name="image" required>
+                                <input type="file" accept="image/*" class="custom-file-input" id="createImgInput1" name="image1" required>
                                 <label class="custom-file-label">Choose file</label>
                             </div>
                         </div>
                         <div class="imgContainer mb-3">
-                            <img id="createImgPreview">
+                            <img id="createImgPreview1">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Image 2</span>
+                            </div>
+                            <div class="custom-file">
+                                <input type="file" accept="image/*" class="custom-file-input" id="createImgInput2" name="image2" required>
+                                <label class="custom-file-label">Choose file</label>
+                            </div>
+                        </div>
+                        <div class="imgContainer mb-3">
+                            <img id="createImgPreview2">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Image 3</span>
+                            </div>
+                            <div class="custom-file">
+                                <input type="file" accept="image/*" class="custom-file-input" id="createImgInput3" name="image3" required>
+                                <label class="custom-file-label">Choose file</label>
+                            </div>
+                        </div>
+                        <div class="imgContainer mb-3">
+                            <img id="createImgPreview3">
                         </div>
                         <div id="createQuill"></div>
                     </div>
@@ -99,7 +123,7 @@
             <div class="card modal-content">
                 <form method="post" id="editForm" enctype="multipart/form-data">
                     <div class="modal-header">
-                        <h5 class="modal-title">Edit Post</h5>
+                        <h5 class="modal-title">Edit Project</h5>
                         <button type="button" class="close" data-dismiss="modal">
                             <span id="timesSpan" aria-hidden="true"><i class="las la-times"></i></span>
                         </button>
@@ -115,16 +139,43 @@
                         <input type="hidden" class="form-control" id="editInputText" name="contentText" required>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
-                                <span class="input-group-text">Image</span>
+                                <span class="input-group-text">Image 1</span>
                             </div>
                             <div class="custom-file">
-                                <input type="file" accept="image/*" class="custom-file-input" id="editImgInput" name="image">
+                                <input type="file" accept="image/*" class="custom-file-input" id="editImgInput1" name="image1">
                                 <label class="custom-file-label">Choose file</label>
                             </div>
                         </div>
                         <div class="imgContainer mb-3">
-                            <img id="editImgPreview">
+                            <img id="editImgPreview1">
                         </div>
+                        
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Image 2</span>
+                            </div>
+                            <div class="custom-file">
+                                <input type="file" accept="image/*" class="custom-file-input" id="editImgInput2" name="image2">
+                                <label class="custom-file-label">Choose file</label>
+                            </div>
+                        </div>
+                        <div class="imgContainer mb-3">
+                            <img id="editImgPreview2">
+                        </div>
+                        
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Image 3</span>
+                            </div>
+                            <div class="custom-file">
+                                <input type="file" accept="image/*" class="custom-file-input" id="editImgInput3" name="image3">
+                                <label class="custom-file-label">Choose file</label>
+                            </div>
+                        </div>
+                        <div class="imgContainer mb-3">
+                            <img id="editImgPreview3">
+                        </div>
+                        
                         <div id="editQuill"></div>
                     </div>
                     <div class="modal-footer">

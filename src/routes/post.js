@@ -1,6 +1,8 @@
 const fs = require("fs");
 const slug = require("speakingurl");
 const multer = require("multer");
+const QuillDeltaToHtmlConverter = require("quill-delta-to-html")
+    .QuillDeltaToHtmlConverter;
 const db = require("../../models");
 const gen = require("../../utility/generator.js");
 
@@ -43,7 +45,7 @@ module.exports = (app, globalConfig) => {
                         res.render("post", {
                             global: globalConfig,
                             settings: siteSettings,
-                            postData: results[0],
+                            postData: results[0].dataValues,
                         });
                     });
                 } else {
