@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    title= settings.siteName + " | All Projects"
+    link(rel="shortcut icon", href=settings.siteIcon)
+    meta(name="description", content=settings.siteDescription)
+    include header.pug
+</head>
+<body id="body" class="d-flex flex-column min-vh-100">
+    span(id="bgImg")= settings.siteImage
+    include topnav.pug
+    <div class="container">
+        <h2 class="text-light mb-3 mt-4">All projects</p>
+        if postData
+            <div id="card-container">
+                each post in postData
+                    <div class="card">
+                        img(class="card-img-top img-fluid" src="/img/" + post.image1)
+                        <div class="card-body">
+                            h5(class="card-title")= post.title
+                            p(class="card-text postDescription")= post.contentText.substr(0, 200) + "..."
+                            p(class="dateText")= post.createdAt
+                            a(class="btn primaryBtn" href="/project/" + post.url) Read more
+                        </div>
+                    </div>
+            </div>
+        else
+            <p class="text-white postDescription">No projects found</p>
+    </div>
+    include footer.pug
+</body>
+</html>

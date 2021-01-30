@@ -50,6 +50,47 @@
             <a href="/post/all" class="moreBtn btn mt-3">All Posts</a>
         else
             <p class="text-white postDescription">No posts found</p>
+
+        <h2 class="text-light mt-4">Latest Projects</h2>
+        if projectData
+            <div id="card-container" class="mt-3">
+                if projectData[projectData.length -1]
+                    <div class="card">
+                        img(class="card-img-top img-fluid" src="/img/" + projectData[projectData.length  -1].image1)
+                        <div class="card-body">
+                            h5(class="card-title")= projectData[projectData.length -1].title
+                            p(class="card-text postDescription")= projectData[projectData.length -1].contentText.substr(0, 200) + "..."
+                            p(class="dateText")= projectData[projectData.length -1].createdAt
+                            a(class="btn primaryBtn" href="/project/" + projectData[projectData.length -1].url) Read more
+                        </div>
+                    </div>
+
+                if projectData[projectData.length -2]
+                    <div class="card">
+                        img(class="card-img-top img-fluid" src="/img/" + projectData[projectData.length -2].image1)
+                        <div class="card-body">
+                            h5(class="card-title")= projectData[projectData.length -2].title
+                            p(class="card-text")= projectData[projectData.length -2].contentText.substr(0, 200) + "..."
+                            p= projectData[projectData.length -2].createdAt
+                            a(class="btn primaryBtn" href="/project/" + projectData[projectData.length -2].url) Read more
+                        </div>
+                    </div>
+        
+                if projectData[projectData.length -3]
+                    <div class="card">
+                        img(class="card-img-top img-fluid" src="/img/" + projectData[projectData.length -3].image1)
+                        <div class="card-body">
+                            h5(class="card-title")= projectData[projectData.length -3].title
+                            p(class="card-text")= projectData[projectData.length -3].contentText.substr(0, 200) + "..."
+                            p= projectData[projectData.length -3].createdAt
+                            a(class="btn primaryBtn" href="/project/" + projectData[projectData.length -3].url) Read more
+                        </div>
+                    </div>
+            </div>
+            <a href="/project/all" class="moreBtn btn mt-3">All Projects</a>
+        else
+            <p class="text-white postDescription">No posts found</p>
+            
     </div>
     include footer.pug
 </body>

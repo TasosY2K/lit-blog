@@ -12,16 +12,16 @@ module.exports = (app, globalConfig) => {
     app.get("/project/all", (req, res) => {
         db.Settings.findAll().then((settings) => {
             siteSettings = settings[0].dataValues;
-            db.Project.findAll().then((results) => {
+            db.Projects.findAll().then((results) => {
                 if (results.length > 0) {
-                    res.render("allProjects", {
+                    res.render("allprojects", {
                         global: globalConfig,
                         settings: siteSettings,
                         username: req.session.username,
                         postData: results,
                     });
                 } else {
-                    res.render("allProjects", {
+                    res.render("allprojects", {
                         global: globalConfig,
                         settings: siteSettings,
                         username: req.session.username,
