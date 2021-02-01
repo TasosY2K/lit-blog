@@ -121,6 +121,43 @@ const runInputs = () => {
             reader.readAsDataURL(e.target.files[0]);
         });
     }
+
+    const image1Input = document.getElementById("image1Input");
+    const image2Input = document.getElementById("image2Input");
+    const image3Input = document.getElementById("image3Input");
+
+    if (
+        document.body.contains(image1Input) &&
+        document.body.contains(image1Input) &&
+        document.body.contains(image3Input)
+    ) {
+        image1Input.addEventListener("change", (e) => {
+            const reader = new FileReader();
+            reader.onload = () => {
+                const output = document.getElementById("image1Preview");
+                output.src = reader.result;
+            };
+            reader.readAsDataURL(e.target.files[0]);
+        });
+
+        image2Input.addEventListener("change", (e) => {
+            const reader = new FileReader();
+            reader.onload = () => {
+                const output = document.getElementById("image2Preview");
+                output.src = reader.result;
+            };
+            reader.readAsDataURL(e.target.files[0]);
+        });
+
+        image3Input.addEventListener("change", (e) => {
+            const reader = new FileReader();
+            reader.onload = () => {
+                const output = document.getElementById("image3Preview");
+                output.src = reader.result;
+            };
+            reader.readAsDataURL(e.target.files[0]);
+        });
+    }
 };
 
 if (window.addEventListener) window.addEventListener("load", runInputs, false);

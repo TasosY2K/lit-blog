@@ -86,4 +86,21 @@ module.exports = (app, globalConfig) => {
             res.redirect("/login");
         }
     });
+
+    app.get("/admin/about", (req, res) => {
+        if (req.session.loggedin) {
+            db.Settings.findAll().then((settings) => {
+                db.About.findAll().then((results) => {
+                    res.render("adminAbout", {
+                        global: globalConfig,
+                        username: req.session.username,
+                        aboutData: results[0],
+                        settingData: settings[0].dataValues,
+                    });
+                });
+            });
+        } else {
+            res.redirect("/login");
+        }
+    });
 };

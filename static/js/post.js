@@ -49,6 +49,11 @@ const runPost = () => {
     window.deletePost = deletePost;
     window.editProject = editProject;
     window.deleteProject = deleteProject;
+
+    const abtContent = document.getElementById("bgContent");
+    if (window.aboutQuill && document.body.contains(abtContent)) {
+        window.aboutQuill.setContents(JSON.parse(abtContent.innerHTML));
+    }
 };
 
 if (window.addEventListener) window.addEventListener("load", runPost, false);

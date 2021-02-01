@@ -34,6 +34,21 @@ const runQuill = () => {
         });
     }
 
+    const aboutContainer = document.getElementById("aboutContainer");
+
+    if (document.body.contains(aboutContainer)) {
+        const aboutContent = new Quill(aboutContainer, { theme: "snow" });
+
+        window.aboutQuill = aboutContent;
+
+        aboutContent.on("text-change", () => {
+            document.getElementById("aboutInput").value = JSON.stringify(
+                aboutContent.getContents().ops
+            );
+            document.getElementById("aboutText").value = aboutContent.getText();
+        });
+    }
+
     const bgContent = document.getElementById("bgContent");
     const postContainer = document.getElementById("postContainer");
 

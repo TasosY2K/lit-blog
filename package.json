@@ -12,7 +12,8 @@
         "createuser": "node utility/createuser.js",
         "build": "webpack",
         "seed": "node utility/seed.js",
-        "reset": "node utility/reset.js"
+        "reset": "node utility/reset.js",
+        "setup": "npm run build & npm run seed & npm run createuser"
     },
     "dependencies": {
         "bcryptjs": "^2.4.3",

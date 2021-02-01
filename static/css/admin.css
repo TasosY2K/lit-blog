@@ -34,7 +34,13 @@ label {
 #createImgPreview3,
 #editImgPreview3,
 #siteImgPreview,
-#iconImgPreview {
+#iconImgPreview,
+#image1Preview,
+#image2Preview,
+#image3Preview,
+#image1Input,
+#image2Input,
+#image3Input {
     max-height: 25vh;
 }
 

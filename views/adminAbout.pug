@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lit Blog Panel | About</title>
+    link(rel="shortcut icon", href=settingData.siteIcon)
+    include header.pug
+</head>
+<body>
+    span(id="bgContent")= aboutData.content
+    <div class="d-flex" id="wrapper">
+        include sidebar.pug
+        <div id="page-content-wrapper">
+            include navbar.pug
+            <div class="container pl-0 m-4">
+                <p class="panelHead mb-3">About Info</p>
+                <form action="/about/edit" class="mr-4" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label>Content</label>
+                        <div id="aboutContainer"></div>
+                    </div>
+                    <input type="hidden" class="form-control" id="aboutInput" name="content" required>
+                    <input type="hidden" class="form-control" id="aboutText" name="contentText" required>
+                    <div class="form-group mb-3">
+                        <label>Image 1</label>
+                        <div class="custom-file">
+                            <input type="file" accept="image/*" class="custom-file-input" id="image1Input" name="image1">
+                            <label class="custom-file-label">Choose file</label>
+                        </div>
+                    </div>
+                    <div class="imgContainer mb-3">
+                        img(id="image1Preview" src=aboutData.image1)
+                    </div>
+                    <div class="form-group mb-3">
+                        <label>Image 2</label>
+                        <div class="custom-file">
+                            <input type="file" accept="image/*" class="custom-file-input" id="image2Input" name="image2">
+                            <label class="custom-file-label">Choose file</label>
+                        </div>
+                    </div>
+                    <div class="imgContainer mb-3">
+                        img(id="image2Preview" src=aboutData.image2)
+                    </div>
+                    <div class="form-group mb-3">
+                        <label>Image 3</label>
+                        <div class="custom-file">
+                            <input type="file" accept="image/*" class="custom-file-input" id="image3Input" name="image3">
+                            <label class="custom-file-label">Choose file</label>
+                        </div>
+                    </div>
+                    <div class="imgContainer mb-3">
+                        img(id="image3Preview" src=aboutData.image3)
+                    </div>
+                    <button type="submit" class="btn successBtn">Save Changes <i class="las la-check"></i></button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
