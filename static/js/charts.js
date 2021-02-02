@@ -1,11 +1,19 @@
 import Chart from "chart.js";
 
+const range = (start, end) => {
+    var ans = [];
+    for (let i = start; i <= end; i++) {
+        ans.push(i);
+    }
+    return ans;
+};
+
 const runCharts = () => {
     const timeChart = document.getElementById("timeChart");
     if (document.body.contains(timeChart)) {
         fetch("/admin/stats")
             .then((response) => response.json())
-            .then((data) => {
+            .then(async (data) => {
                 const chartOptions = {
                     scales: {
                         yAxes: [
@@ -19,6 +27,7 @@ const runCharts = () => {
                                 ticks: {
                                     fontColor: "#808080",
                                     beginAtZero: true,
+                                    precision: 0,
                                 },
                             },
                         ],
@@ -39,33 +48,36 @@ const runCharts = () => {
                     },
                     responsive: true,
                 };
+
                 let dateset = [];
-                let amountset1 = [];
-                let amountset2 = [];
-                data.postData.forEach((element, i) => {
-                    dateset.push(element.createdAt);
-                    amountset1.push(i);
-                });
-                data.projectData.forEach((element, i) => {
-                    dateset.push(element.createdAt);
-                    amountset2.push(i);
-                });
-                dateset.sort((a, b) => {
+
+                for (let i = 0; i < data.postData.length; i++) {
+                    const element = data.postData[i];
+                    await dateset.push(element.createdAt);
+                }
+
+                for (let i = 0; i < data.projectData.length; i++) {
+                    const element = data.projectData[i];
+                    await dateset.push(element.createdAt);
+                }
+
+                await dateset.sort((a, b) => {
                     return new Date(b.date) - new Date(a.date);
                 });
-                new Chart(timeChart, {
+
+                await new Chart(timeChart, {
                     type: "line",
                     data: {
                         labels: dateset,
                         datasets: [
                             {
                                 label: "Posts",
-                                data: amountset1,
+                                data: range(0, data.postData.length),
                                 backgroundColor: "rgba(37, 57, 128, 0.7)",
                             },
                             {
                                 label: "Projects",
-                                data: amountset2,
+                                data: range(0, data.projectData.length),
                                 backgroundColor: "rgba(40, 133, 54  , 0.7)",
                             },
                         ],

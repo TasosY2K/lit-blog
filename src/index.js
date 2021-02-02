@@ -1,7 +1,5 @@
 require("dotenv").config();
 
-const fs = require("fs");
-
 const session = require("express-session");
 const bodyParser = require("body-parser");
 
@@ -13,18 +11,6 @@ const filewalker = require("../utility/fileWalker.js");
 const gen = require("../utility/generator.js");
 
 let globalConfig = process.env;
-
-const db = require("../models");
-
-db.sequelize.sync();
-
-const folders = ["uploads", "images"];
-
-folders.forEach((folder) => {
-    if (!fs.existsSync(folder)) {
-        fs.mkdirSync(folder);
-    }
-});
 
 app.use(
     session({
