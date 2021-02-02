@@ -12,7 +12,8 @@ You can use it as a suitable alternative for Wordpress since it's faster and way
 2. `cd lit-blog`
 3. `npm install`
 4. `npm setup`
-5. You can find the admin credidentials and a small guide on the first post (don't forget to delete it)
+5. Rename `example.env` to `.env`
+6. You can find the admin credidentials and a small guide on the first post (don't forget to delete it)
 
 ### Demo
 

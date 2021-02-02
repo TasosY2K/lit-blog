@@ -3,3 +3,4 @@ uploads
 images
 .env
 storage.db
+bundle.js
