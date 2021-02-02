@@ -30,6 +30,7 @@
     },
     "devDependencies": {
         "bootstrap": "^4.6.0",
+        "chart.js": "^2.9.4",
         "css-loader": "^5.0.1",
         "jquery": "^3.5.1",
         "nodemon": "^2.0.7",

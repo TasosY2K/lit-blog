@@ -19,10 +19,11 @@ label {
     color: rgba(211, 211, 211, 1) !important;
 }
 
-.custom-file-input {
+input[type="file"] {
     border-radius: 0 !important;
     border: rgba(17, 26, 59, 1) 1px solid !important;
     background-color: red !important;
+    color: blue !important;
 }
 
 #createImgPreview,
@@ -37,10 +38,7 @@ label {
 #iconImgPreview,
 #image1Preview,
 #image2Preview,
-#image3Preview,
-#image1Input,
-#image2Input,
-#image3Input {
+#image3Preview {
     max-height: 25vh;
 }
 

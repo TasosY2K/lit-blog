@@ -16,3 +16,4 @@ import "./js/quill.js";
 import "./js/post.js";
 import "./js/inputs.js";
 import "./js/home.js";
+import "./js/charts.js";

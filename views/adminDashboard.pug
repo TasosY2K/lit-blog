@@ -10,9 +10,20 @@
 		include sidebar.pug
 		<div id="page-content-wrapper">
 			include navbar.pug
-			<div class="container-fluid m-4">
+			<div class="container m-4">
 				<div class="row">
 					<p class="panelHead">Dashboard</p>
+				</div>
+				<div class="row">
+					<div class="col-md-6 pl-0">
+						p(class="card text-white p-4 text-center")= "Total posts: " + postData.length
+					</div>
+					<div class="col-md-6 pl-0 pr-0">
+						p(class="card text-white p-4 text-center")= "Total projects: " + projectData.length
+					</div>
+				</div>
+				<div class="row">
+					<canvas id="timeChart"></canvas>
 				</div>
 			</div>
 		</div>
