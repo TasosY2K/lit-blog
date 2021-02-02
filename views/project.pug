@@ -3,7 +3,8 @@
 <head>
     title= settings.siteName + " | " + postData.title
     link(rel="shortcut icon", href=settings.siteIcon)
-    meta(name="description", content=postData.contentText.substr(0, 70))
+    meta(name="description", content=postData.contentText.trim().substr(0, 70))
+    meta(property="og:image", content="/img/" + postData.image1)
     include header.pug
 </head>
 <body id="body" class="d-flex flex-column min-vh-100">

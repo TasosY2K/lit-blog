@@ -4,6 +4,7 @@
     title= settings.siteName + " | About"
     link(rel="shortcut icon", href=settings.siteIcon)
     meta(name="description", content=postData.contentText.substr(0, 70))
+    meta(property="og:image", content=postData.image1)
     include header.pug
 </head>
 <body id="body" class="d-flex flex-column min-vh-100">
