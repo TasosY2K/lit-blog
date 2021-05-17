@@ -11,7 +11,7 @@ You can use it as a suitable alternative for Wordpress since it's faster and way
 1. `git clone https://github.com/TasosY2K/lit-blog.git`
 2. `cd lit-blog`
 3. `npm install`
-4. `npm setup`
+4. `npm run setup`
 5. Rename `example.env` to `.env`
 6. You can find the admin credidentials and a small guide on the first post (don't forget to delete it)
 
